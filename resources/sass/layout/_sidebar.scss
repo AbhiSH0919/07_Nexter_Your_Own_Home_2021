@@ -1,0 +1,21 @@
+.sidebar {
+	background-color: $color-primary;
+	grid-column: sidebar-start / sidebar-end;
+	grid-row: 1 / -1;
+
+	display: flex;
+	justify-content: center;
+	padding: 1rem 0;
+
+	@media only screen and (max-width: $bp-large) {
+		grid-column: full-start / full-end;
+		grid-row: 1 / 2;
+		justify-content: flex-end;
+		align-items: center;
+		padding: 0 2rem;
+	}
+
+	@media only screen and (min-width: $bp-large) and (hover: none) {
+		grid-row: 1 / 8;
+	}
+}

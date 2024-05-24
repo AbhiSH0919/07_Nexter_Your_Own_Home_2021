@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%; /* 1rem = 10px --> 10/16 = 62.5% */
+	box-sizing: border-box;
+
+	@media only screen and (max-width: $bp-largest) {
+		font-size: 50%;
+	}
+
+	@media only screen and (max-width: $bp-micro) {
+		font-size: 43.75%;
+	}
+
+	@media only screen and (min-width: $bp-very-large) {
+		font-size: 75%;
+	}
+}
+
+.container {
+	max-width: 160rem;
+
+	display: grid;
+	grid-template-rows:
+		90vh min-content minmax(min-content, 40vw)
+		repeat(3, min-content);
+
+	grid-auto-rows: min-content;
+
+	grid-template-columns:
+		[sidebar-start] 8rem [sidebar-end full-start]
+		minmax(6rem, 1fr) [center-start]
+		repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+		[center-end] minmax(6rem, 1fr) [full-end];
+
+	//===MEDIA-QUERY-FOR-1000PX===
+	@media only screen and (max-width: $bp-large) {
+		grid-template-rows:
+			6rem minmax(50rem, 80vh) min-content minmax(min-content, 40vw)
+			repeat(3, min-content);
+
+		grid-template-columns:
+			[full-start]
+			minmax(6rem, 1fr) [center-start]
+			repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+			[center-end] minmax(6rem, 1fr) [full-end];
+	}
+
+	@media only screen and (max-width: $bp-medium) {
+		grid-template-rows: 6rem minmax(55rem, calc(100vh - 6rem));
+	}
+
+	@media only screen and (max-width: $bp-micro) {
+		grid-template-columns:
+			[full-start]
+			minmax(2rem, 1fr) [center-start]
+			repeat(6, [col-start] minmax(min-content, 14rem) [col-end])
+			[center-end] minmax(2rem, 1fr) [full-end];
+	}
+}

@@ -1,0 +1,32 @@
+.btn {
+	font-family: $font-display;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	color: $color-white;
+	background-color: $color-primary;
+	padding: 1.8rem 3rem;
+	border: none;
+	border-radius: 0;
+	cursor: pointer;
+	transition: all 0.2s;
+
+	&:hover {
+		background-color: $color-primary-dark;
+	}
+
+	&__sidebar__nav {
+		height: 6rem;
+		width: 6rem;
+		fill: $color-white;
+		padding: 0;
+	}
+
+	&__header {
+		align-self: start;
+		justify-self: start;
+	}
+
+	&__home {
+		grid-column: 1 / -1;
+	}
+}
